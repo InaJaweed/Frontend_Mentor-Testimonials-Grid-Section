@@ -1,0 +1,7 @@
+{
+	"hosting": {
+		"site": "frontend-mentor-grid-section-b8540",
+		"public": ".",
+		"ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
+	}
+}

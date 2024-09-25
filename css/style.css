@@ -1,0 +1,185 @@
+/* font-family: "Barlow Semi Condensed", sans-serif; 
+Moderate violet: hsl(263, 55%, 52%)
+Very dark grayish blue: hsl(217, 19%, 35%)
+Very dark blackish blue: hsl(219, 29%, 14%)
+White: hsl(0, 0%, 100%)
+
+Light gray: hsl(0, 0%, 81%)
+Light grayish blue: hsl(210, 46%, 95%)
+
+*/
+:root {
+	--ff-base: 'Barlow Semi Condensed', sans-serif;
+	--fw-regular: 500;
+	--fw-bold: 600;
+
+	--clr-bg: hsl(210, 46%, 95%);
+	--clr-primary: hsl(0, 0%, 81%);
+	--clr-cardPurple: hsl(263, 55%, 52%);
+	--clr-cardWhite: hsl(0, 0%, 100%);
+	--clr-cardGreyBlue: hsl(217, 19%, 35%);
+	--clr-cardBlackBlue: hsl(219, 29%, 14%);
+}
+
+body {
+	background-color: var(--clr-bg);
+	display: grid;
+	min-height: 100vh;
+	place-content: center;
+
+	font-family: var(--ff-base);
+	font-size: 13px;
+	color: var(--clr-cardWhite);
+	font-weight: var(--fw-regular);
+}
+
+.main-container {
+	display: grid;
+	margin: 4rem;
+	padding-block: 2rem;
+	margin-inline: auto;
+	gap: 1.5rem;
+	/* grid-template-columns: repeat(4, 1fr); */
+	grid-auto-columns: 1fr;
+	grid-template-areas:
+		'one'
+		'two'
+		'three'
+		'four'
+		'five';
+	width: min(95%, 70rem);
+}
+
+.card {
+	display: grid;
+	padding: 1.5rem;
+	border-radius: 0.7rem;
+	box-shadow: 5px 5px 5px darkgray;
+}
+
+.card > p:last-of-type {
+	opacity: 70%;
+}
+
+.card > *:where(:not(:first-child, :nth-child(2))) {
+	gap: 10rem;
+}
+
+#clifford {
+	background-color: var(--clr-cardPurple);
+	/* grid-column: span 2; */
+}
+
+#walters {
+	background-color: var(--clr-cardGreyBlue);
+}
+
+#harmon {
+	background-color: var(--clr-cardWhite);
+	/* grid-column-start: 1; */
+}
+
+#abrams {
+	background-color: var(--clr-cardBlackBlue);
+	/* grid-column: span 2; */
+}
+
+#whittle {
+	background-color: var(--clr-cardWhite);
+	/* grid-column-start: 4; */
+	/* grid-row-start: 1; */
+	/* grid-row-end: span 2; */
+}
+
+.user {
+	display: flex;
+	gap: 1rem;
+	align-items: center;
+	padding-bottom: 1em;
+}
+
+.user-icon {
+	border-radius: 50%;
+	width: 2.5rem;
+	aspect-ratio: 1;
+}
+
+.name {
+	font-weight: var(--fw-bold);
+	line-height: 1;
+}
+
+.graduate {
+	opacity: 50%;
+	font-size: 0.68rem;
+}
+
+.card.quote {
+	background-image: url(/images/bg-pattern-quotation.svg);
+	background-repeat: no-repeat;
+	background-position: top right 22.5%;
+}
+
+.review {
+	line-height: 1.2;
+	font-size: 1.25rem;
+	font-weight: var(--fw-bold);
+	padding-bottom: 1rem;
+}
+
+#whittle * {
+	color: var(--clr-cardGreyBlue);
+}
+
+#harmon * {
+	color: var(--clr-cardGreyBlue);
+}
+
+.card:nth-child(1) {
+	grid-area: one;
+}
+
+.card:nth-child(2) {
+	grid-area: two;
+}
+
+.card:nth-child(3) {
+	grid-area: three;
+}
+
+.card:nth-child(4) {
+	grid-area: four;
+}
+.card:nth-child(5) {
+	grid-area: five;
+}
+
+@media (min-width: 800px) {
+	.main-container {
+		grid-template-areas:
+			'one one two five'
+			'three four four five';
+	}
+}
+
+@media (max-width: 800px) {
+	.main-container {
+		grid-template-areas:
+			'one one'
+			'two three'
+			'five five'
+			'four four';
+	}
+}
+
+@media (max-width: 375px) {
+	.main-container {
+		grid-template-areas:
+			'one'
+			'two'
+			'three'
+			'four'
+			'five';
+		width: min(80%, 300px);
+	}
+}
